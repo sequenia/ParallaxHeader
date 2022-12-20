@@ -292,6 +292,15 @@ public class ParallaxHeader: NSObject {
     }
     
     private func setCenterModeConstraints() {
+        if #available(iOS 9.0, *) {
+            NSLayoutConstraint.activate([
+                view.topAnchor.constraint(equalTo: contentView.topAnchor),
+                view.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+                view.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+            ])
+        }
+
         let binding = [
             "v" : view
         ]
